@@ -67,22 +67,26 @@ plt.savefig('tmin_hist.pdf')
 #Slice based on town(name)
 towns_index= ['BOSTON, MA US', 'BLUE HILL, MA US', 'ASHBURNHAM, MA US', 'AMHERST, MA US']
 towns =sorted_data.loc[(towns_index, slice(None)), :]
-print(towns)
+#print(towns)
+#print(towns.info())
 
-#wth_data_precip = pd.melt(frame=wth_data, id_vars=['DATE', 'NAME'], value_vars=['PRCP', 'SNOW'],  var_name='Type', value_name='Reading')
+sorted_data_noindex = sorted_data.reset_index()
+print(sorted_data_noindex.info())
 
-#print(sorted_data['TMAX'])
-#print(sorted_data.loc[(slice(None), 'ACTON 1.3 SW, MA US'),'SNOW'])
-#print(sorted_data.loc[(slice(None), 'WORCESTER, MA US'), 'TMAX'])
-#worcester = (sorted_data.loc[(slice(None), 'WORCESTER, MA US'), 'TMAX'])
-#print(worcester)
-#worcester_y = (sorted_data.loc[(slice(None), 'WORCESTER, MA US'), 'SNOW'])
-#print(worcester_y)
 
-#plt.scatter(worcester, worcester_y, marker = 'o')
-#plt.show()
-
-#print(sorted_data.loc[(slice(None), 'ACTON 1.3 SW, MA US'), :])
-#acton = (sorted_data.loc[(slice(None), 'ACTON 1.3 SW, MA US'), :])
-#acton.plot(subplots=True)
-#plt.show()
+lst =[]
+for x in sorted_data_noindex:
+    count= sorted_data_noindex['NAME'].value_counts()
+print(count[0:139] > 27)
+        #lst= lst.append(count)
+    #print(count)
+#    lst.append(count)
+    #if count[: , ] > 27 :
+    #    print(count)
+#    df.append(count['NAME'] )
+#
+print(count)
+#print(count.values > 27)
+#print(lst)
+#print(lst.info())
+#print(df)
