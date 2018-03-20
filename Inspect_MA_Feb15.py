@@ -19,7 +19,7 @@ sorted_data = wth_data.sort_index()
 
 loc=0
 for index, row in sorted_data.iterrows():
-    print(sorted_data[loc:loc+50])
+    #print(sorted_data[loc:loc+50])
     if loc <= 3500:
         loc = loc + 50
     else: break
@@ -65,8 +65,9 @@ plt.savefig('tmin_hist.pdf')
 #plt.show()
 
 #Slice based on town(name)
-town1 =sorted_data.loc[('BOSTON, MA US', slice(None)), :]
-print(town1)
+towns_index= ['BOSTON, MA US', 'BLUE HILL, MA US', 'ASHBURNHAM, MA US', 'AMHERST, MA US']
+towns =sorted_data.loc[(towns_index, slice(None)), :]
+print(towns)
 
 #wth_data_precip = pd.melt(frame=wth_data, id_vars=['DATE', 'NAME'], value_vars=['PRCP', 'SNOW'],  var_name='Type', value_name='Reading')
 
