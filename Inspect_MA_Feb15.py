@@ -35,9 +35,10 @@ precip= sorted_precip['PRCP']
 plt.xlabel('Inches of Precipiation')
 plt.ylabel('Number of days')
 plt.title('MA Precipiation Feb 2015')
-precip.plot(y='PRCP', kind='hist', bins=10)
+precip.plot(y='PRCP', kind='hist', bins=20)
 plt.savefig('precip_hist.pdf')
-#plt.show()
+plt.show()
+
 #Histogram of Snowfall
 snow= sorted_precip['SNOW']
 plt.xlabel('Inches of Snow')
@@ -73,11 +74,14 @@ towns =sorted_data.loc[(towns_index, slice(None)), :]
 sorted_data_noindex = sorted_data.reset_index()
 print(sorted_data_noindex.info())
 
+sorted_data_noindex.groupby()
 
-lst =[]
 for x in sorted_data_noindex:
     count= sorted_data_noindex['NAME'].value_counts()
-print(count[0:139] > 27)
+print(count)
+sorted_data_noindex.groupby()
+#print(count[0:139] > 27)
+
         #lst= lst.append(count)
     #print(count)
 #    lst.append(count)
